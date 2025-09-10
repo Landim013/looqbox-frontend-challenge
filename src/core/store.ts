@@ -1,12 +1,11 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import { pokeApi } from "../apis/pokeapi";
+import { configureStore } from '@reduxjs/toolkit';
+import pokedexReducer from './pokedexSlice';
 
-// export const store = configureStore({
-//   reducer: {
-//     [pokeApi.reducerPath]: pokeApi.reducer,
-//   },
-//   middleware: (getDefault) => getDefault().concat(pokeApi.middleware),
-// });
+export const store = configureStore({
+  reducer: {
+    pokedex: pokedexReducer,
+  },
+});
 
-// export type RootState = ReturnType<typeof store.getState>;
-// export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
