@@ -35,15 +35,16 @@ export default [
         'simple-import-sort/exports': 'error',
         'import/order': ['error', { 'newlines-between': 'always' }],
         '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+        'import/newline-after-import': ['error', { count: 1 }],
+        'import/no-duplicates': 'error',
       },
     },
-    // Override só para arquivos .d.ts
+
     {
       files: ['**/*.d.ts'],
       rules: { '@typescript-eslint/no-empty-object-type': 'off' },
     },
   ),
 
-  // Desativa conflitos com Prettier
   prettier,
 ];
