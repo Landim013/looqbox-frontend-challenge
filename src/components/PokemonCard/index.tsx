@@ -1,6 +1,7 @@
 // src/components/PokemonCard/index.tsx
 import type { Pokemon } from '../../constants/Pokemon';
 import { getTypeColor } from '../../utils/getTypeColors';
+import { getPokemonSpriteUrl } from '../../utils/sprites';
 import * as S from './styles';
 
 type PokemonCardProps = {
@@ -10,7 +11,7 @@ type PokemonCardProps = {
 };
 
 function PokemonCard({ pokemon, setModal, setPokemonData }: PokemonCardProps) {
-  const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
+  const imgUrl = getPokemonSpriteUrl(pokemon.id);
 
   const formatPokemonId = (id: number) => (id < 10 ? `#00${id}` : id < 100 ? `#0${id}` : `#${id}`);
 
@@ -34,8 +35,6 @@ function PokemonCard({ pokemon, setModal, setPokemonData }: PokemonCardProps) {
 
       <S.Types>
         {pokemon.types.map(({ type }) => {
-          // const color = pokemonTypes.find((t) => t.name === type.name)?.color ?? '#777';
-
           return (
             <S.TypesButton key={type.name} $color={mainColor}>
               <S.TypeDescription>{type.name}</S.TypeDescription>

@@ -7,15 +7,12 @@ import { loadPokemons, setPage } from '../../core/slices/pokedexSlice';
 import * as S from './styles';
 
 function Home() {
-  const dispatch = useAppDispatch();
   const { list, total, page, pageSize, status } = useAppSelector((s) => s.pokedex);
+  const dispatch = useAppDispatch();
 
-  useEffect(
-    function init() {
-      dispatch(loadPokemons(page));
-    },
-    [dispatch, page],
-  );
+  useEffect(() => {
+    dispatch(loadPokemons(page));
+  }, [page, dispatch]);
 
   function handleChange(nextPage: number) {
     dispatch(setPage(nextPage));

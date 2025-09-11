@@ -7,16 +7,9 @@ export const Container = styled.header`
   align-items: center;
   min-height: 80px;
   width: 100%;
-  /* background-color: aqua; */
+  margin-bottom: 100px;
 `;
 export const CustomImage = styled.img`
   width: 200px;
   height: auto;
 `;
-
-// @media (max-width: 31.25rem) {
-//   & > svg {
-//     width: 8.19rem;
-//     height: 3rem;
-//   }
-// }

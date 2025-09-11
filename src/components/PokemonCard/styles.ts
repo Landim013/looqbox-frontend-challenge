@@ -15,8 +15,8 @@ const fadeDown = keyframes`
 export const Card = styled.div`
   width: 100%;
   padding: 0 150px;
-  margin-top: 180px;
   display: flex;
+  margin: 80px 0;
   flex-direction: column;
   align-items: center;
   background: rgba(6, 11, 40, 0.15);
@@ -26,6 +26,9 @@ export const Card = styled.div`
   padding-top: 120px;
   position: relative;
   animation: ${fadeDown} 0.8s;
+  @media (max-width: 768px) {
+    margin: 20px 0;
+  }
 `;
 
 export const CardOverlay = styled.div<{ $color?: string }>`
