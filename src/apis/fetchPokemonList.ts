@@ -1,5 +1,5 @@
 // src/apis/fetchPokemonList.ts
-import type { Pokemon } from '../types/Pokemon';
+import type { Pokemon } from '../constants/Pokemon';
 
 const makePokemon = (
   id: number,

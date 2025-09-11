@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Header } from '../../components/Header';
 import PokemonCard from '../../components/PokemonCard';
 import { useAppDispatch, useAppSelector } from '../../core/hooks';
-import { loadPokemons, setPage } from '../../core/pokedexSlice';
+import { loadPokemons, setPage } from '../../core/slices/pokedexSlice';
 import * as S from './styles';
 
 function Home() {

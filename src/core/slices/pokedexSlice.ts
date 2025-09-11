@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchPokemonList } from '../apis/fetchPokemonList';
-import type { Pokemon } from '../types/Pokemon';
+import { fetchPokemonList } from '../../apis/fetchPokemonList';
+import type { Pokemon } from '../../constants/Pokemon';
 
 // estado do slice
 type Status = 'idle' | 'loading' | 'succeeded' | 'failed';

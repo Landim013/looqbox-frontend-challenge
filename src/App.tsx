@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { router } from './core/router';
-import { store } from './core/store';
+import { store } from './core';
+import { router } from './routes';
 import { GlobalStyle } from './styles/globalStyles';
 import { theme } from './styles/theme';
 
