@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   /* Input */
   .ant-input-affix-wrapper {
     background: transparent !important; /* fundo transparente */
-    border: 2px solid #1890ff !important; /* azul padrão do Ant */
+    border: 2px solid #3f3e3eff !important; /* azul padrão do Ant */
     border-radius: 6px;
     color: white; /* texto branco */
 
@@ -20,6 +20,16 @@ export const Wrapper = styled.div`
 
     input::placeholder {
       color: rgba(255, 255, 255, 0.5); /* placeholder mais suave */
+    }
+  }
+  .ant-input-search-button {
+    background: #3f3e3eff !important; /* cor de fundo */
+    border: none !important;
+    color: white !important; /* cor do ícone/lupa */
+    font-weight: bold;
+
+    &:hover {
+      background: #202020ff !important; /* cor no hover */
     }
   }
 `;

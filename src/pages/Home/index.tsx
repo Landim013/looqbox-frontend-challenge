@@ -45,12 +45,7 @@ function Home() {
           <>
             <S.Grid>
               {list.map((pokemon) => (
-                <PokemonCard
-                  key={pokemon.id}
-                  pokemon={pokemon}
-                  // setModal={() => {}}
-                  // setPokemonData={() => {}}
-                />
+                <PokemonCard key={pokemon.id} pokemon={pokemon} />
               ))}
             </S.Grid>
 

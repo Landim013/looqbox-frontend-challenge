@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 90%;
   display: grid;
   gap: 10px;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
 export const Row = styled.div`
@@ -11,6 +14,9 @@ export const Row = styled.div`
   grid-template-columns: 210px 1fr;
   align-items: center;
   gap: 16px;
+  @media (max-width: 768px) {
+    grid-template-columns: 40% 1fr;
+  }
 `;
 
 export const Label = styled.div`
@@ -20,6 +26,11 @@ export const Label = styled.div`
   font-size: 12px;
   text-transform: none;
   text-align: right;
+  @media (max-width: 768px) {
+    padding: 0;
+    width: 100%;
+    font-size: 10px;
+  }
 `;
 
 export const Value = styled.span`

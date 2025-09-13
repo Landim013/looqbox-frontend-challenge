@@ -4,37 +4,92 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  padding: 40px 48px;
+  height: 80vh;
+  padding: 0px 48px;
+  position: relative;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0px;
+    height: auto;
+    padding: 20px 0;
+  }
 `;
 
-export const ContantLeft = styled.div`
+export const Header = styled.header`
+  border-bottom: 1px solid #3f3e3eff;
+  height: 140px;
+  width: 100%;
   display: flex;
-  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  @media (max-width: 768px) {
+    height: 100px;
+  }
+`;
+export const ContentSearchBar = styled.div`
+  width: 30%;
+  @media (max-width: 768px) {
+    width: 58%;
+  }
+`;
+export const Logo = styled.img`
+  width: 280px;
+  @media (max-width: 768px) {
+    width: 120px;
+  }
+`;
+export const ContantLeft = styled.div`
+  flex: 1;
+  display: flex;
   flex-direction: column;
-  gap: 100px;
-  border-right: 2px solid #ddd;
+  gap: 120px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 84px;
+  position: relative;
+  @media (max-width: 768px) {
+    gap: 60px;
+    margin-top: -20px;
+    width: 100%;
+  }
 `;
 export const ContantRight = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  @media (max-width: 768px) {
+    margin-top: -30px;
+    width: 100%;
+  }
 `;
 
 export const Statistic = styled.div`
-  /* padding-top: 24px; */
-  margin-left: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
-export const Name = styled.p`
+export const Name = styled.p<{ $color?: string }>`
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 10px;
+  color: ${({ $color }) => $color || '#fff'};
 `;
 
 export const Information = styled.p`
   font-size: 20px;
   font-weight: 400;
+  display: flex;
+  gap: 10px;
+  align-items: right;
+  text-align: right;
 `;
 
 export const Image = styled.img`
@@ -42,11 +97,48 @@ export const Image = styled.img`
 `;
 export const Types = styled.div`
   display: flex;
+  align-items: left;
   gap: 12px;
+  margin-top: 10px;
 `;
 
-export const ResumePokemon = styled.p`
+export const ResumePokemon = styled.p<{ $color?: string }>`
   font-size: 36px;
-  width: 50%;
-  color: #ff9900;
+  width: 70%;
+  color: ${({ $color }) => $color || '#fff'};
+  @media (max-width: 768px) {
+    font-size: 26px;
+    text-align: center;
+  }
+`;
+
+export const ImagePokeball = styled.img`
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  opacity: 0.08;
+
+  pointer-events: none;
+`;
+
+export const Icon = styled.img`
+  width: 20px;
+`;
+
+export const IconHome = styled.img``;
+export const ButtonGraphic = styled.div`
+  background-color: #5c5b5bff;
+  display: flex;
+  position: absolute;
+  bottom: -40px;
+  gap: 20px;
+`;
+export const Graphic = styled.div`
+  width: 90%;
+  height: 20%;
+  margin-top: -144px;
+  padding: 10px;
+  /* z-index: -1; */
 `;

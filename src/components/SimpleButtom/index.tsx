@@ -7,10 +7,22 @@ type Props = {
   color?: string;
   position?: string;
   borderRadius?: string;
+  icon?: string;
+  borderColor?: string;
   onClick?: () => void;
 };
 
-function SimpleButton({ width, height, text, color, position, borderRadius, onClick }: Props) {
+function SimpleButton({
+  width,
+  height,
+  text,
+  color,
+  position,
+  borderRadius,
+  icon,
+  borderColor,
+  onClick,
+}: Props) {
   return (
     <S.Button
       $width={width}
@@ -18,8 +30,10 @@ function SimpleButton({ width, height, text, color, position, borderRadius, onCl
       $color={color}
       $position={position}
       $borderRadius={borderRadius}
+      $borderColor={borderColor}
       onClick={onClick}
     >
+      {icon && <S.Icon src={icon} alt="Icon" />}
       {text}
     </S.Button>
   );
