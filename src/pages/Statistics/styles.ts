@@ -1,17 +1,33 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ $color?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
   padding: 0px 48px;
+  height: 100vh;
   position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    top: 20%;
+    left: 72%;
+    transform: translateX(-50%);
+    background: ${({ $color }) => $color || ''};
+    opacity: 1;
+    filter: blur(1820px);
+  }
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 0px;
     height: auto;
     padding: 20px 0;
+    &::after {
+      width: 50%;
+      top: 10%;
+    }
   }
 `;
 
@@ -25,6 +41,7 @@ export const ContantLeft = styled.div`
   padding: 20px;
   margin-top: 84px;
   position: relative;
+
   @media (max-width: 768px) {
     gap: 60px;
     margin-top: -20px;
@@ -37,6 +54,7 @@ export const ContantRight = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   @media (max-width: 768px) {
     margin-top: 40px;
     width: 100%;

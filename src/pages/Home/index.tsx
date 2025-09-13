@@ -1,13 +1,14 @@
 import { Pagination } from 'antd';
 import { useEffect } from 'react';
+import iconHome from '../../assets/icons/home.svg';
 import PokemonCard from '../../components/PokemonCard';
+import SimpleButton from '../../components/SimpleButtom';
 import { useAppDispatch, useAppSelector } from '../../core/hooks';
 import { loadPokemons, setPage } from '../../core/slices/pokedexSlice';
 import * as S from './styles';
 function Home() {
   const { list, total, page, pageSize, status } = useAppSelector((s) => s.pokedex);
   const dispatch = useAppDispatch();
-
   useEffect(() => {
     dispatch(loadPokemons(page));
   }, [page, dispatch]);
@@ -17,10 +18,17 @@ function Home() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // }K
-
   return (
     <S.Container>
+      <SimpleButton
+        text="Inicio"
+        icon={iconHome}
+        width="140px"
+        onClick={() => {
+          dispatch(setPage(1));
+          dispatch(loadPokemons(1));
+        }}
+      />
       <S.Inner>
         {status === 'loading' ? (
           <p>Carregando…</p>

@@ -44,15 +44,13 @@ function Statistics() {
     value: s.base_stat,
     color: mainColor,
   }));
-  console.log(stats[0].color);
 
   const pokemonImage = getPokemonImage(pokemon.id);
 
   return (
     <>
       <SimpleButton text="Inicio" icon={iconHome} width="140px" onClick={() => navigate('/')} />
-
-      <S.Container>
+      <S.Container $color={mainColor}>
         <S.ContantLeft>
           <S.Statistic>
             <S.Name $color={stats[0].color}>{pokemon.name.toUpperCase()}</S.Name>

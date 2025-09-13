@@ -18,6 +18,10 @@ export const Card = styled.div`
   padding: 120px 150px 24px;
   position: relative;
   animation: ${fadeDown} 0.8s;
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Overlay = styled.div<{ $color: string }>`
