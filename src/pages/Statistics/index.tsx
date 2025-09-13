@@ -4,17 +4,15 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getPokemonImage } from '../../apis/getPokemonImage';
 import IconHeight from '../../assets/icons/height.svg';
 import iconHome from '../../assets/icons/home.svg';
-import logo from '../../assets/icons/logo.svg';
 import pokeball from '../../assets/icons/pokeball.svg';
 import IconWeight from '../../assets/icons/weight.svg';
-import SearchBar from '../../components/SearchBar';
 import SimpleButton from '../../components/SimpleButtom';
 import StatsBarChart from '../../components/StatusBarChart';
 import StatsRadarChart from '../../components/StatusRadarChart';
 import TypePill from '../../components/TypePill';
 import { pokemonTypes } from '../../constants/pokemonTypes';
 import { useAppDispatch, useAppSelector } from '../../core/hooks';
-import { loadDetails, loadPokemons, searchByName, setPage } from '../../core/slices/pokedexSlice';
+import { loadDetails } from '../../core/slices/pokedexSlice';
 import * as S from './styles';
 function Statistics() {
   const { id } = useParams();
@@ -49,23 +47,9 @@ function Statistics() {
   console.log(stats[0].color);
 
   const pokemonImage = getPokemonImage(pokemon.id);
-  function handleSearchResult(name: string) {
-    if (name) {
-      dispatch(searchByName(name));
-    } else {
-      dispatch(setPage(1));
-      dispatch(loadPokemons(1));
-    }
-  }
 
   return (
     <>
-      <S.Header>
-        <S.Logo src={logo} alt="Logo" />
-        <S.ContentSearchBar>
-          <SearchBar onResult={handleSearchResult} />
-        </S.ContentSearchBar>
-      </S.Header>
       <SimpleButton text="Inicio" icon={iconHome} width="140px" onClick={() => navigate('/')} />
 
       <S.Container>
@@ -103,13 +87,13 @@ function Statistics() {
             <SimpleButton
               text="Barras"
               width="140px"
-              color={chartType === 'bar' ? '#141414' : '#2b2a2a'}
               onClick={() => setChartType('bar')}
+              active={chartType === 'bar' ? true : false}
             />
             <SimpleButton
+              active={chartType === 'radar' ? true : false}
               text="Radar"
               width="140px"
-              color={chartType === 'radar' ? '#141414' : '#2b2a2a'}
               onClick={() => setChartType('radar')}
             />
           </S.ButtonGraphic>

@@ -15,30 +15,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Header = styled.header`
-  border-bottom: 1px solid #3f3e3eff;
-  height: 140px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-bottom: 20px;
-  @media (max-width: 768px) {
-    height: 100px;
-  }
-`;
-export const ContentSearchBar = styled.div`
-  width: 30%;
-  @media (max-width: 768px) {
-    width: 58%;
-  }
-`;
-export const Logo = styled.img`
-  width: 280px;
-  @media (max-width: 768px) {
-    width: 120px;
-  }
-`;
 export const ContantLeft = styled.div`
   flex: 1;
   display: flex;
@@ -53,6 +29,7 @@ export const ContantLeft = styled.div`
     gap: 60px;
     margin-top: -20px;
     width: 100%;
+    padding: 20px 0;
   }
 `;
 export const ContantRight = styled.div`
@@ -61,7 +38,7 @@ export const ContantRight = styled.div`
   flex-direction: column;
   align-items: center;
   @media (max-width: 768px) {
-    margin-top: -30px;
+    margin-top: 40px;
     width: 100%;
   }
 `;
@@ -129,7 +106,6 @@ export const Icon = styled.img`
 
 export const IconHome = styled.img``;
 export const ButtonGraphic = styled.div`
-  background-color: #5c5b5bff;
   display: flex;
   position: absolute;
   bottom: -40px;
@@ -138,7 +114,12 @@ export const ButtonGraphic = styled.div`
 export const Graphic = styled.div`
   width: 90%;
   height: 20%;
-  margin-top: -144px;
+  margin-top: -178px;
+  margin-bottom: -70px;
   padding: 10px;
-  /* z-index: -1; */
+  @media (max-width: 768px) {
+    margin-top: -178px;
+    margin-bottom: -160px;
+    padding: 0;
+  }
 `;

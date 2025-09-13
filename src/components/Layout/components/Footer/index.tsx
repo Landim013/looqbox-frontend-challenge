@@ -2,7 +2,7 @@ import * as C from './styles';
 
 export const Footer = () => {
   return (
-    <div className="main-container">
+    <div>
       <C.Container>
         <C.Copy>
           <span>Direitos de imagem para Nintendo & The Pokémon Company</span>

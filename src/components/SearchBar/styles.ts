@@ -3,33 +3,35 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   max-width: 720px;
+
   margin: 16px auto 24px;
   padding: 0 16px;
 
-  /* Input */
   .ant-input-affix-wrapper {
-    background: transparent !important; /* fundo transparente */
-    border: 2px solid #3f3e3eff !important; /* azul padrão do Ant */
+    background: transparent !important;
+    border: 2px solid #3f3e3eff !important;
     border-radius: 6px;
-    color: white; /* texto branco */
+    color: white;
+    height: 40px;
 
     input {
-      background: transparent !important; /* campo também transparente */
-      color: white; /* texto branco */
+      background: transparent !important;
+      color: white;
     }
 
     input::placeholder {
-      color: rgba(255, 255, 255, 0.5); /* placeholder mais suave */
+      color: rgba(255, 255, 255, 0.5);
     }
   }
   .ant-input-search-button {
-    background: #3f3e3eff !important; /* cor de fundo */
+    background: #3f3e3eff !important;
     border: none !important;
-    color: white !important; /* cor do ícone/lupa */
+    color: white !important;
     font-weight: bold;
+    height: 40px;
 
     &:hover {
-      background: #202020ff !important; /* cor no hover */
+      background: #202020ff !important;
     }
   }
 `;

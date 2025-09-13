@@ -5,7 +5,7 @@ export const Button = styled.button<{
   $height?: string;
   $color?: string;
   $borderRadius?: string;
-
+  $active?: boolean;
   $borderColor?: string;
   $position?: string;
 }>`
@@ -13,7 +13,9 @@ export const Button = styled.button<{
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: ${({ $color }) => $color};
+  background: ${({ $active, $color, theme }) =>
+    $active ? theme.colors.buttonActive : $color || theme.colors.button};
+
   width: ${({ $width }) => $width || '100%'};
   height: ${({ $height }) => $height || '40px'};
   color: #fff;
@@ -36,8 +38,8 @@ export const Button = styled.button<{
   }
 `;
 export const Icon = styled.img`
-  width: 18px; /* tamanho explícito */
+  width: 18px;
   height: 18px;
-  flex-shrink: 0; /* evita “amassar” em layouts estreitos */
-  display: block; /* evita espaçamento estranho de inline-img */
+  flex-shrink: 0;
+  display: block;
 `;

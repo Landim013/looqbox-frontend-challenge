@@ -7,6 +7,7 @@ type Props = {
   color?: string;
   position?: string;
   borderRadius?: string;
+  active?: boolean;
   icon?: string;
   borderColor?: string;
   onClick?: () => void;
@@ -21,6 +22,7 @@ function SimpleButton({
   borderRadius,
   icon,
   borderColor,
+  active,
   onClick,
 }: Props) {
   return (
@@ -31,6 +33,7 @@ function SimpleButton({
       $position={position}
       $borderRadius={borderRadius}
       $borderColor={borderColor}
+      $active={active}
       onClick={onClick}
     >
       {icon && <S.Icon src={icon} alt="Icon" />}

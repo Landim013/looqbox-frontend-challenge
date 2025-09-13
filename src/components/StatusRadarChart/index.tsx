@@ -1,74 +1,5 @@
-// src/components/StatsRadarChart/index.tsx
-// import { Radar } from '@ant-design/plots';
-// import * as S from './styles';
-
-// type Stat = { name: string; value: number; color: string };
-// type Props = {
-//   stats: Stat[];
-//   max?: number;
-// };
-
-// function StatsRadarChart({ stats, max = 150 }: Props) {
-//   const mainColor = stats[0]?.color || '#22c55e';
-
-//   const config = {
-//     data: stats,
-//     xField: 'name',
-//     yField: 'value',
-//     scale: {
-//       x: { padding: 0.5, align: 0 },
-//       y: {
-//         domain: [0, max],
-//       },
-//     },
-//     axis: {
-//       x: {
-//         labelFill: mainColor,
-//         labelFontSize: 14,
-//         labelFontWeight: 'bold',
-//       },
-//       y: {
-//         labelFill: '#fff',
-//         grid: true,
-//         line: {
-//           style: {
-//             stroke: '#fff',
-//             lineWidth: 1,
-//             lineDash: [],
-//           },
-//         },
-//       },
-//     },
-//     style: {
-//       lineWidth: 2,
-//       stroke: mainColor,
-//     },
-//     area: {
-//       style: {
-//         fill: mainColor,
-//         fillOpacity: 0.2,
-//       },
-//     },
-//     point: {
-//       size: 4,
-//       style: {
-//         fill: mainColor,
-//         stroke: '#fff',
-//       },
-//     },
-//     legend: false,
-//   };
-
-//   return (
-//     <>
-//       <S.Wrapper />
-//       <Radar {...config} />
-//     </>
-//   );
-// }
-
-// export default StatsRadarChart;
 import { Rose } from '@ant-design/plots';
+import { useEffect, useState } from 'react';
 import * as S from './styles';
 type Stat = { name: string; value: number; color?: string };
 
@@ -77,20 +8,34 @@ type Props = {
 };
 
 function StatsRoseChart({ stats }: Props) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 768); // <= 768px é mobile
+    }
+    handleResize(); // checa na primeira renderização
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const config = {
     data: stats,
     xField: 'name',
     yField: 'value',
-    colorField: 'name', // cada stat terá uma cor diferente (ou mesma se quiser)
+    colorField: 'name',
 
-    innerRadius: 0.2,
-    scale: { x: { padding: 0 } },
+    innerRadius: 0.1,
+    scale: {
+      x: { padding: 0 },
+      y: { domain: isMobile ? [0, 300] : [0, 150] },
+    },
     axis: false,
     legend: false,
     label: {
       text: (d: Stat) => `${d.name.toUpperCase()}: ${d.value}`,
       position: 'outside',
-      style: { fill: '#fff', fontSize: 13, fontWeight: 600 },
+      style: { fill: '#fff', fontSize: isMobile ? 9 : 12, fontWeight: 600 },
     },
     style: { fillOpacity: 0.8 },
   };
