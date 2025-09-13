@@ -7,7 +7,7 @@ export const Container = styled.header`
   align-items: center;
   min-height: 80px;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 `;
 export const CustomImage = styled.img`
   width: 200px;

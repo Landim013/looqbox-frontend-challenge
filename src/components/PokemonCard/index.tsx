@@ -1,67 +1,71 @@
-// src/components/PokemonCard/index.tsx
+import { useNavigate } from 'react-router-dom';
+import { getPokemonImage } from '../../apis/getPokemonImage';
 import type { Pokemon } from '../../constants/Pokemon';
-import { getTypeColor } from '../../utils/getTypeColors';
-import { getPokemonSpriteUrl } from '../../utils/sprites';
+import { pokemonTypes } from '../../constants/pokemonTypes';
+import SimpleButton from '../SimpleButtom';
+import TypePill from '../TypePill';
 import * as S from './styles';
 
-type PokemonCardProps = {
+type Props = {
   pokemon: Pokemon;
-  setModal: (value: boolean) => void;
-  setPokemonData: (data: Pokemon) => void;
 };
 
-function PokemonCard({ pokemon, setModal, setPokemonData }: PokemonCardProps) {
-  const imgUrl = getPokemonSpriteUrl(pokemon.id);
-
-  const formatPokemonId = (id: number) => (id < 10 ? `#00${id}` : id < 100 ? `#0${id}` : `#${id}`);
+function PokemonCard({ pokemon }: Props) {
+  const pokemonImage = getPokemonImage(pokemon.id);
+  const navigate = useNavigate();
+  function formatId(id: number) {
+    if (id < 10) return `#00${id}`;
+    if (id < 100) return `#0${id}`;
+    return `#${id}`;
+  }
 
   const mainType = pokemon.types[0]?.type.name ?? 'normal';
-  const mainColor = getTypeColor(mainType);
+  const typeData = pokemonTypes.find((t) => t.name === mainType);
 
-  function handleClick() {
-    setPokemonData(pokemon);
-    setModal(true);
+  const mainColor = typeData?.color ?? '#777';
+
+  function goToDetails() {
+    navigate(`/pokemon/${pokemon.id}`, { state: { pokemon } });
   }
 
   return (
     <S.Card>
-      <S.CardOverlay $color={mainColor} />
+      <S.Overlay $color={mainColor} />
       <S.ImageWrapper>
-        <img src={imgUrl} alt={pokemon.name} loading="lazy" />
+        <img src={pokemonImage} alt={pokemon.name} loading="lazy" />
       </S.ImageWrapper>
 
-      <S.Number>{formatPokemonId(pokemon.id)}</S.Number>
+      <S.Number>{formatId(pokemon.id)}</S.Number>
       <S.Name>{pokemon.name}</S.Name>
 
       <S.Types>
         {pokemon.types.map(({ type }) => {
-          return (
-            <S.TypesButton key={type.name} $color={mainColor}>
-              <S.TypeDescription>{type.name}</S.TypeDescription>
-            </S.TypesButton>
-          );
+          const typeData = pokemonTypes.find((t) => t.name === type.name);
+          const color = typeData?.color ?? '#777';
+          const icon = typeData?.icon ?? '';
+
+          return <TypePill key={type.name} color={color} icon={icon} label={type.name} />;
         })}
       </S.Types>
 
-      <S.Features onClick={handleClick} role="button" tabIndex={0}>
-        <S.Specification>
-          <>
-            {/* <WeightIcon /> */}
-            <S.Metrics>{`${pokemon.weight / 10}`} kg</S.Metrics>
-          </>
+      <S.Features>
+        <S.Spec>
+          <S.Metrics>{(pokemon.weight / 10).toFixed(1)} kg</S.Metrics>
           <span>Peso</span>
-        </S.Specification>
-
-        <S.Specification>
-          <>
-            {/* <RulerIcon /> */}
-            <S.Metrics>{`${pokemon.height / 10}`} m</S.Metrics>
-          </>
+        </S.Spec>
+        <S.Spec>
+          <S.Metrics>{(pokemon.height / 10).toFixed(1)} m</S.Metrics>
           <span>Altura</span>
-        </S.Specification>
+        </S.Spec>
       </S.Features>
-
-      {/* <S.DetailsButton onClick={handleClick}>Mais Detalhes</S.DetailsButton> */}
+      <SimpleButton
+        text="Mais detalhes"
+        color={mainColor}
+        onClick={goToDetails}
+        position="absolute"
+        borderRadius="0 0 20px 20px"
+        height="50px"
+      />
     </S.Card>
   );
 }

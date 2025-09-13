@@ -2,8 +2,9 @@ import { Pagination } from 'antd';
 import { useEffect } from 'react';
 import { Header } from '../../components/Header';
 import PokemonCard from '../../components/PokemonCard';
+import SearchBar from '../../components/SearchBar';
 import { useAppDispatch, useAppSelector } from '../../core/hooks';
-import { loadPokemons, setPage } from '../../core/slices/pokedexSlice';
+import { loadPokemons, searchByName, setPage } from '../../core/slices/pokedexSlice';
 import * as S from './styles';
 
 function Home() {
@@ -19,9 +20,23 @@ function Home() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function handleSearchResult(name: string) {
+    if (name) {
+      // busca por nome → 1 resultado
+      dispatch(searchByName(name));
+    } else {
+      // limpar → volta para página 1 e recarrega a lista padrão
+      dispatch(setPage(1));
+      dispatch(loadPokemons(1));
+    }
+  }
+
   return (
     <S.Container>
       <Header />
+      <S.ContentSearchBar>
+        <SearchBar onResult={handleSearchResult} />
+      </S.ContentSearchBar>
 
       <S.Inner>
         {status === 'loading' ? (
@@ -33,8 +48,8 @@ function Home() {
                 <PokemonCard
                   key={pokemon.id}
                   pokemon={pokemon}
-                  setModal={() => {}}
-                  setPokemonData={() => {}}
+                  // setModal={() => {}}
+                  // setPokemonData={() => {}}
                 />
               ))}
             </S.Grid>

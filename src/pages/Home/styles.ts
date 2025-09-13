@@ -4,6 +4,10 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
 `;
+export const ContentSearchBar = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #5a5b5e;
+`;
 export const Grid = styled.ul`
   list-style: none;
   padding: 0;

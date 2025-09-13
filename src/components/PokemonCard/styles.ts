@@ -1,64 +1,42 @@
-// src/components/PokemonCard/styles.ts
 import styled, { keyframes } from 'styled-components';
 
 const fadeDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translate3d(0, -32px, 0);
-  }
-  to {
-    opacity: initial;
-    transform: initial;
-  }
+  from { opacity: 0; transform: translate3d(0, -32px, 0); }
+  to { opacity: 1; transform: none; }
 `;
 
 export const Card = styled.div`
   width: 100%;
-  padding: 0 150px;
+  margin-top: 180px;
   display: flex;
-  margin: 80px 0;
   flex-direction: column;
   align-items: center;
   background: rgba(6, 11, 40, 0.15);
   border: 1px solid #24293f;
   border-bottom: none;
   border-radius: 22px;
-  padding-top: 120px;
+  padding: 120px 150px 24px;
   position: relative;
   animation: ${fadeDown} 0.8s;
-  @media (max-width: 768px) {
-    margin: 20px 0;
-  }
 `;
 
-export const CardOverlay = styled.div<{ $color?: string }>`
-  width: 100%;
-  height: 100%;
-  border-radius: 1.5rem;
+export const Overlay = styled.div<{ $color: string }>`
   position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  inset: 0;
+  border-radius: 22px;
   z-index: -1;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-
+  overflow: hidden;
   &::after {
     content: '';
-    display: block;
-    width: 12.5rem;
-    height: 12.5rem;
-    background: ${({ $color }) => `${$color}90`}; /* ~20% */
-    filter: blur(128px);
     position: absolute;
+    width: 200px;
+    height: 200px;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    transition: 0.8s;
+    background: ${({ $color }) => $color};
+    opacity: 1;
+    filter: blur(120px);
   }
 `;
 
@@ -73,69 +51,38 @@ export const ImageWrapper = styled.div`
 
 export const Number = styled.span`
   font-size: 1.25rem;
-  line-height: 135%;
   font-weight: 700;
 `;
 
 export const Name = styled.span`
   font-size: 2rem;
-  line-height: 135%;
   font-weight: 700;
   text-transform: capitalize;
   text-align: center;
-  display: block;
-  margin: 0.25rem 0.5rem 0.75rem;
+  margin: 4px 8px 12px;
 `;
 
 export const Types = styled.div`
   display: flex;
-  gap: 20px;
-`;
-export const TypeDescription = styled.span`
-  color: #fff;
-  font-size: 16px;
-  text-transform: capitalize;
+  gap: 12px;
 `;
 
-export const TypesButton = styled.button<{ $color: string }>`
-  background-color: ${({ $color }) => $color ?? '#777'};
-  padding: 12px;
-  border-radius: 8px;
-`;
 export const Features = styled.div`
   display: flex;
   gap: 32px;
   margin: 16px 0;
 `;
 
-export const Specification = styled.div`
+export const Spec = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 4px;
+  margin-bottom: 26px;
 `;
+
 export const Metrics = styled.span`
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.4;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
   white-space: nowrap;
-`;
-
-export const DetailsButton = styled.button<{ color: string }>`
-  width: calc(100% + 2px);
-  height: 3rem;
-  background: ${({ color }) => color};
-  border-radius: 0 0 1.5rem 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  line-height: 150%;
-  font-weight: 700;
-  color: #ffffff;
 `;

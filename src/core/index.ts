@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import pokedexReducer from './slices/pokedexSlice';
+import pokedex from './slices/pokedexSlice';
 
 export const store = configureStore({
-  reducer: {
-    pokedex: pokedexReducer,
-  },
+  reducer: { pokedex },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
