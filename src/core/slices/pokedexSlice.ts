@@ -1,4 +1,3 @@
-// src/core/slices/pokedexSlice.ts
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { getPokemonById } from '../../apis/getById';
 import { getPokemonByName } from '../../apis/getByNames';
@@ -16,7 +15,6 @@ type PokedexState = {
   status: Status;
   error?: string;
   query: string;
-  // cache de detalhes por id
   detailsById: Record<number, { pokemon: Pokemon; description: string }>;
 };
 
@@ -30,7 +28,6 @@ const initialState: PokedexState = {
   detailsById: {},
 };
 
-// lista paginada
 export const loadPokemons = createAsyncThunk('pokedex/load', async (page: number, { getState }) => {
   const { pokedex } = getState() as { pokedex: PokedexState };
   const { pageSize } = pokedex;
@@ -38,7 +35,6 @@ export const loadPokemons = createAsyncThunk('pokedex/load', async (page: number
   return { results, total, page };
 });
 
-// busca por nome
 export const searchByName = createAsyncThunk(
   'pokedex/searchByName',
   async (name: string, { rejectWithValue }) => {
@@ -48,7 +44,6 @@ export const searchByName = createAsyncThunk(
   },
 );
 
-// detalhes (dados + descrição) por id
 export const loadDetails = createAsyncThunk('pokedex/loadDetails', async (id: number) => {
   const [pokemon, description] = await Promise.all([getPokemonById(id), getPokemonDescription(id)]);
   return { id, pokemon, description };
@@ -72,7 +67,6 @@ const pokedexSlice = createSlice({
     },
   },
   extraReducers: (b) => {
-    // lista
     b.addCase(loadPokemons.pending, (s) => {
       s.status = 'loading';
       s.error = undefined;
@@ -88,7 +82,6 @@ const pokedexSlice = createSlice({
       s.error = a.error.message;
     });
 
-    // busca por nome
     b.addCase(searchByName.pending, (s) => {
       s.status = 'loading';
       s.error = undefined;
@@ -106,7 +99,6 @@ const pokedexSlice = createSlice({
       s.error = (a.payload as string) || 'Pokémon não encontrado';
     });
 
-    // detalhes
     b.addCase(loadDetails.pending, (s) => {
       s.status = 'loading';
       s.error = undefined;

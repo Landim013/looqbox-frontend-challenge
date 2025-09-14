@@ -1,4 +1,3 @@
-// src/components/SearchBar/index.tsx
 import { Input } from 'antd';
 import { useState } from 'react';
 import * as S from './styles';

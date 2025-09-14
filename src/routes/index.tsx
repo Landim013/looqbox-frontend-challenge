@@ -7,9 +7,9 @@ import Statistics from '../pages/Statistics';
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />, // Layout global (Header, Footer, etc.)
+    element: <Layout />,
     children: [
-      { index: true, element: <Home /> }, // rota padrão "/"
+      { index: true, element: <Home /> },
       { path: 'pokemon/:id', element: <Statistics /> },
     ],
   },

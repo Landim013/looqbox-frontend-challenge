@@ -1,9 +1,8 @@
-// src/types/Pokemon.ts
 export type Pokemon = {
   id: number;
   name: string;
-  types: { type: { name: string } }[]; // <- array
+  types: { type: { name: string } }[];
   weight: number;
   height: number;
-  stats: { base_stat: number; stat: { name: string } }[]; // <- array
+  stats: { base_stat: number; stat: { name: string } }[];
 };

@@ -1,4 +1,3 @@
-// src/pages/Statistics/index.tsx
 import { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getPokemonImage } from '../../apis/getPokemonImage';

@@ -1,4 +1,4 @@
-// src/components/StatsLines/index.tsx
+// src/components/StatsLines/index.tsxK
 import { Progress } from 'antd';
 import * as S from './styles';
 

@@ -1,4 +1,3 @@
-// src/apis/getSpecies.ts
 import { getData } from '../services/configAxios';
 
 type SpeciesResponse = {
@@ -8,7 +7,6 @@ type SpeciesResponse = {
 export async function getPokemonDescription(idOrName: number | string) {
   const data = await getData<SpeciesResponse>(`/pokemon-species/${idOrName}`);
 
-  // tenta achar em pt, se não, pega em en
   const entry =
     data.flavor_text_entries.find((e) => e.language.name === 'pt') ||
     data.flavor_text_entries.find((e) => e.language.name === 'en');

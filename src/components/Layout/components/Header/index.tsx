@@ -1,4 +1,3 @@
-// src/components/Header/index.tsx
 import { useNavigate } from 'react-router-dom';
 import iconHome from '../../../../assets/icons/home.svg';
 import logo from '../../../../assets/icons/logo.svg';
