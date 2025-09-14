@@ -13,5 +13,4 @@ const config: Config = {
     '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/src/test/fileMock.ts',
   },
 };
-
 export default config;

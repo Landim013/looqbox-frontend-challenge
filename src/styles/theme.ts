@@ -9,7 +9,6 @@ export const theme = {
     buttonActive: '#2b2a2a',
     button: '#161313ff',
   },
-  spacing: (factor: number) => `${factor * 8}px`,
 } as const;
 
 export type ThemeType = typeof theme;

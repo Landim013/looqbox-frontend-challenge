@@ -23,8 +23,6 @@ export const Slide = styled.div<{ $bg: 'ash' | 'misty' | 'brock' }>`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: ${({ theme }) => theme.spacing(3)};
-  padding: ${({ theme }) => theme.spacing(4)};
   background: ${({ theme, $bg }) => theme.colors[$bg]};
   color: #fff;
   padding: 40px 250px;

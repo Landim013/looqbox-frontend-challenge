@@ -1,8 +1,14 @@
 {
-  "extends": "./tsconfig.app.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": ["jest", "node"],
-    "noEmit": true
+    "jsx": "react-jsx",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/test/**/*.ts", "src/test/**/*.tsx"]
+  "include": ["test/**/*.ts", "test/**/*.tsx", "src/**/*.ts", "src/**/*.tsx", "jest.config.ts"]
 }
