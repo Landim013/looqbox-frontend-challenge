@@ -8,6 +8,8 @@ export const Button = styled.button<{
   $active?: boolean;
   $borderColor?: string;
   $position?: string;
+  $fontSize?: string;
+  $disabled?: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -22,24 +24,23 @@ export const Button = styled.button<{
   border: ${({ $borderColor }) => ($borderColor ? `1px solid ${$borderColor}` : 'none')};
   border-radius: 8px;
   padding: 10px 16px;
-  font-size: 1rem;
+  font-size: ${({ $fontSize }) => $fontSize || '16px'};
   font-weight: 800;
-  cursor: pointer;
   transition: 0.2s ease;
   position: ${({ $position }) => $position || 'relative'};
   bottom: 0;
   border-radius: ${({ $borderRadius }) => $borderRadius || '0px'};
+  cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
   &:hover {
-    opacity: 0.9;
+    opacity: 0.7;
   }
 
   &:active {
     transform: scale(0.97);
   }
 `;
-export const Icon = styled.img`
-  width: 18px;
-  height: 18px;
+export const Icon = styled.img<{ $sizeIcon?: string }>`
+  width: ${({ $sizeIcon }) => $sizeIcon || '20px'};
   flex-shrink: 0;
   display: block;
 `;

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 90%;
   display: grid;
+  max-width: 720px;
+  margin: 0 auto;
   gap: 10px;
   @media (max-width: 768px) {
     padding: 0 20px;
@@ -13,6 +15,7 @@ export const Row = styled.div`
   display: grid;
   grid-template-columns: 210px 1fr;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   @media (max-width: 768px) {
     grid-template-columns: 40% 1fr;

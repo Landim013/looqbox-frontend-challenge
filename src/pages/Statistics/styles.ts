@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ $color?: string }>`
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const Content = styled.div<{ $color?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,7 +134,7 @@ export const ButtonGraphic = styled.div`
   gap: 20px;
   z-index: 2;
 `;
-export const Graphic = styled.div`
+export const GraphicChart = styled.div`
   width: 90%;
   height: 20%;
   margin-top: -178px;
@@ -140,5 +144,28 @@ export const Graphic = styled.div`
     margin-top: -178px;
     margin-bottom: -160px;
     padding: 0;
+  }
+`;
+export const GraphicBAr = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+  margin-bottom: 40px;
+  @media (max-width: 768px) {
+    margin-top: -14px;
+    margin-bottom: 10px;
+  }
+`;
+
+export const NavBar = styled.div`
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+  @media (max-width: 768px) {
+    margin: 0;
   }
 `;
