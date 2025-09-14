@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   height: 50vh;
@@ -28,11 +28,14 @@ export const ErrorMessage = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+`;
 
-  span {
-    font-size: 1rem;
-    line-height: 150%;
-    font-weight: 700;
-    color: #ffffff;
-  }
+export const Icon = styled.img`
+  width: 32px;
+  height: 32px;
+`;
+export const Message = styled.p`
+  font-size: 1rem;
+  line-height: 150%;
+  font-weight: 700;
 `;

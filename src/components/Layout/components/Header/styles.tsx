@@ -38,3 +38,8 @@ export const Logo = styled.img`
     width: 120px;
   }
 `;
+export const ContentButton = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+`;

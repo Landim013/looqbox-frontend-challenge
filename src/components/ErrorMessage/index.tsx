@@ -1,12 +1,15 @@
+import iconPikachu from '../../assets/image/pikachu.png';
 import * as S from './styles';
-// import imgSrc from "../../../assets/img-pikachu-sad-min.png";
 
-export const ErrorMessage = () => {
+type Props = {
+  message?: string;
+};
+export const ErrorMessage = ({ message }: Props) => {
   return (
     <S.Container>
       <S.ErrorMessage>
-        {/* <img src={imgSrc} width="32" height="32" alt="Pikachu" /> */}
-        <span>Ops, pokémon não encontrado!</span>
+        <S.Icon src={iconPikachu} alt="Icon pikachu" />
+        <S.Message>{message || 'Ops, pokémon não encontrado!'}</S.Message>
       </S.ErrorMessage>
     </S.Container>
   );
