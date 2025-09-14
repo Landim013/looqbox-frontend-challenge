@@ -29,7 +29,7 @@ function PokemonCard({ pokemon }: Props) {
   }
 
   return (
-    <S.Container>
+    <S.Container data-testid={`card-${pokemon.name}`}>
       <S.Overlay $color={mainColor} />
       <S.ImageWrapper>
         <img src={pokemonImage} alt={pokemon.name} loading="lazy" />

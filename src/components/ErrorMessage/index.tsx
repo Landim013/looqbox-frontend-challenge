@@ -6,7 +6,7 @@ type Props = {
 };
 export const ErrorMessage = ({ message }: Props) => {
   return (
-    <S.Container>
+    <S.Container data-testid="error-message">
       <S.ErrorMessage>
         <S.Icon src={iconPikachu} alt="Icon pikachu" />
         <S.Message>{message || 'Ops, pokémon não encontrado!'}</S.Message>

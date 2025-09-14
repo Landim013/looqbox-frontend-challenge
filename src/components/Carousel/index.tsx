@@ -28,7 +28,7 @@ const items = [
 export default function HeaderCarousel() {
   return (
     <S.Container>
-      <Carousel autoplay autoplaySpeed={4000}>
+      <Carousel autoplay autoplaySpeed={7000}>
         {items.map((item) => (
           <S.Slide key={item.title} $bg={item.bg}>
             <S.ContentLeft>

@@ -128,6 +128,7 @@ export const ButtonGraphic = styled.div`
   position: absolute;
   bottom: -40px;
   gap: 20px;
+  z-index: 2;
 `;
 export const Graphic = styled.div`
   width: 90%;

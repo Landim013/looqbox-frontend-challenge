@@ -15,7 +15,7 @@ function SearchBar({ onResult }: Props) {
   }
 
   return (
-    <S.Container>
+    <S.Container data-testid="search-input">
       <Input.Search
         value={value}
         onChange={(e) => setValue(e.target.value)}
