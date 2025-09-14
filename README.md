@@ -102,16 +102,22 @@ A aplicação consome dados da **PokeAPI**:
 ## 📷 Visualização da aplicação
 
 💻 **Página inicial (listagem + busca)**  
-(Imagem aqui)
+<img width="1686" height="1156" alt="image" src="https://github.com/user-attachments/assets/50e6a74d-2284-42ef-b798-5c2a60e64d83" />
+
 
 📄 **Página de detalhes do Pokémon**  
-(Imagem aqui)
+<img width="1666" height="1282" alt="image" src="https://github.com/user-attachments/assets/cb02997f-aa96-46da-9adb-4d11df5c1bac" />
+
 
 📊 **Gráfico de estatísticas**  
-(Imagem aqui)
+<img width="1608" height="1244" alt="image" src="https://github.com/user-attachments/assets/cd21adcf-cadf-4388-ab38-e0a6b4d98066" />
+
 
 📱 **Versão mobile**  
-(Imagem aqui)
+<img width="426" height="1205" alt="image" src="https://github.com/user-attachments/assets/3cfa68ea-2906-45d0-806a-03b11e38ccdf" />
+
+<img width="418" height="1165" alt="image" src="https://github.com/user-attachments/assets/1646e449-8c09-4687-b97c-a44473b3c31e" />
+
 
 ---
 
