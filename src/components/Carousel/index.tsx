@@ -27,7 +27,7 @@ const items = [
 
 export default function HeaderCarousel() {
   return (
-    <S.Wrapper>
+    <S.Container>
       <Carousel autoplay autoplaySpeed={4000}>
         {items.map((item) => (
           <S.Slide key={item.title} $bg={item.bg}>
@@ -39,6 +39,6 @@ export default function HeaderCarousel() {
           </S.Slide>
         ))}
       </Carousel>
-    </S.Wrapper>
+    </S.Container>
   );
 }

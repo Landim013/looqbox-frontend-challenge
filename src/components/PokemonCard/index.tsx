@@ -29,7 +29,7 @@ function PokemonCard({ pokemon }: Props) {
   }
 
   return (
-    <S.Card>
+    <S.Container>
       <S.Overlay $color={mainColor} />
       <S.ImageWrapper>
         <img src={pokemonImage} alt={pokemon.name} loading="lazy" />
@@ -66,7 +66,7 @@ function PokemonCard({ pokemon }: Props) {
         borderRadius="0 0 20px 20px"
         height="50px"
       />
-    </S.Card>
+    </S.Container>
   );
 }
 

@@ -8,10 +8,10 @@ type Props = {
 
 function TypePill({ color, icon, label }: Props) {
   return (
-    <S.Wrapper $color={color}>
+    <S.Container $color={color}>
       {icon && <img src={icon} alt={label} width={16} height={16} />}
       <S.Text>{label}</S.Text>
-    </S.Wrapper>
+    </S.Container>
   );
 }
 

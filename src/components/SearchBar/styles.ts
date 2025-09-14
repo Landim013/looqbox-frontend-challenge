@@ -1,7 +1,7 @@
 // src/components/SearchBar/styles.ts
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   max-width: 720px;
 
   margin: 16px auto 24px;

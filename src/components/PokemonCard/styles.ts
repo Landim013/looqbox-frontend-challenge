@@ -5,7 +5,7 @@ const fadeDown = keyframes`
   to { opacity: 1; transform: none; }
 `;
 
-export const Card = styled.div`
+export const Container = styled.div`
   width: 100%;
   margin-top: 180px;
   display: flex;

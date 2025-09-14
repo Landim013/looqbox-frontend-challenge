@@ -10,7 +10,7 @@ type Props = {
 
 function StatsLines({ stats, max = 125 }: Props) {
   return (
-    <S.Wrapper>
+    <S.Container>
       {stats.map((s) => {
         const pct = Math.max(0, Math.min(100, Math.round((s.value / max) * 100)));
 
@@ -33,7 +33,7 @@ function StatsLines({ stats, max = 125 }: Props) {
           </S.Row>
         );
       })}
-    </S.Wrapper>
+    </S.Container>
   );
 }
 

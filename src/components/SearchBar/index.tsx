@@ -15,7 +15,7 @@ function SearchBar({ onResult }: Props) {
   }
 
   return (
-    <S.Wrapper>
+    <S.Container>
       <Input.Search
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -24,7 +24,7 @@ function SearchBar({ onResult }: Props) {
         placeholder="Pesquisar Pokémon"
         enterButton
       />
-    </S.Wrapper>
+    </S.Container>
   );
 }
 
