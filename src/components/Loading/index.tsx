@@ -1,9 +1,9 @@
-import * as C from "./styles";
+import * as S from './styles';
 
 export const Loading = () => {
   return (
-    <C.Container>
-      <C.Loading>
+    <S.Container>
+      <S.Loading>
         <div className="lds-roller">
           <div></div>
           <div></div>
@@ -14,7 +14,7 @@ export const Loading = () => {
           <div></div>
           <div></div>
         </div>
-      </C.Loading>
-    </C.Container>
+      </S.Loading>
+    </S.Container>
   );
 };

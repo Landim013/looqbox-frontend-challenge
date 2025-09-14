@@ -83,7 +83,7 @@ function Statistics() {
           )}
           <S.ButtonGraphic>
             <SimpleButton
-              text="Barras"
+              text="Barra"
               width="140px"
               onClick={() => setChartType('bar')}
               active={chartType === 'bar' ? true : false}
