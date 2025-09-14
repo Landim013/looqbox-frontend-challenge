@@ -4,7 +4,7 @@ export const Container = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #24293f;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
   padding: 0px 40px;
   margin-top: 120px;
   @media (max-width: 768px) {

@@ -11,8 +11,8 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(6, 11, 40, 0.15);
-  border: 1px solid #24293f;
+  background: ${({ theme }) => theme.colors.backgroundCard};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   border-bottom: none;
   border-radius: 22px;
   padding: 120px 150px 24px;

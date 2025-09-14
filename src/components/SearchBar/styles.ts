@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
   .ant-input-affix-wrapper {
     background: transparent !important;
-    border: 2px solid #3f3e3eff !important;
+    border: 2px solid ${({ theme }) => theme.colors.border}!important;
     border-radius: 6px;
     color: white;
     height: 40px;
@@ -24,14 +24,14 @@ export const Wrapper = styled.div`
     }
   }
   .ant-input-search-button {
-    background: #3f3e3eff !important;
+    background: ${({ theme }) => theme.colors.border} !important;
     border: none !important;
     color: white !important;
     font-weight: bold;
     height: 40px;
 
     &:hover {
-      background: #202020ff !important;
+      background: ${({ theme }) => theme.colors.buttonActive} !important;
     }
   }
 `;

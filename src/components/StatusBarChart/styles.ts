@@ -33,9 +33,7 @@ export const Label = styled.div`
   }
 `;
 
-export const Value = styled.span`
-  color: #ffffff;
-`;
+export const Value = styled.span``;
 
 export const Bar = styled.div`
   max-width: 350px;

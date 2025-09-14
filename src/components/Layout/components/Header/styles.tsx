@@ -7,7 +7,6 @@ export const Container = styled.header`
   align-items: center;
   min-height: 80px;
   width: 100%;
-  /* margin-bottom: 60px; */
 `;
 export const CustomImage = styled.img`
   width: 200px;
@@ -15,7 +14,7 @@ export const CustomImage = styled.img`
 `;
 
 export const Header = styled.header`
-  border-bottom: 1px solid #3f3e3eff;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   height: 140px;
   width: 100%;
   display: flex;

@@ -19,6 +19,7 @@ const testTheme = {
     ash: '#213547',
     misty: '#1f2d3d',
     brock: '#334155',
+    white: '#FFFFFF',
   },
 } as any;
 

@@ -18,7 +18,7 @@ export const Button = styled.button<{
 
   width: ${({ $width }) => $width || '100%'};
   height: ${({ $height }) => $height || '40px'};
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   border: ${({ $borderColor }) => ($borderColor ? `1px solid ${$borderColor}` : 'none')};
   border-radius: 8px;
   padding: 10px 16px;

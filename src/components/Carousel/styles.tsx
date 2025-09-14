@@ -24,7 +24,7 @@ export const Slide = styled.div<{ $bg: 'ash' | 'misty' | 'brock' }>`
   align-items: flex-start;
   justify-content: space-between;
   background: ${({ theme, $bg }) => theme.colors[$bg]};
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   padding: 40px 250px;
 
   @media (max-width: 768px) {

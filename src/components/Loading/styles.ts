@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 50vh;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,13 +19,13 @@ export const Loading = styled.div`
     transform-origin: 40px 40px;
   }
   .lds-roller div:after {
-    content: " ";
+    content: ' ';
     display: block;
     position: absolute;
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #fff;
+    background: ${({ theme }) => theme.colors.white};
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {

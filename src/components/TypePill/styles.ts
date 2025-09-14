@@ -6,7 +6,6 @@ export const Wrapper = styled.div<{ $color: string }>`
   justify-content: center;
   gap: 6px;
   background: ${({ $color }) => $color};
-  color: #fff;
   border-radius: 8px;
   padding: 6px 20px;
   max-width: 100px;

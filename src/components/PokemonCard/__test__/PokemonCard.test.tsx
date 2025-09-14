@@ -2,9 +2,21 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { ThemeProvider } from 'styled-components';
 import PokemonCard from '..';
 import type { Pokemon } from '../../../constants/Pokemon';
 
+const testTheme = {
+  colors: {
+    backgroundCard: '#0B26BE26',
+    border: '#24293F',
+    white: '#FFFFFF',
+  },
+} as any;
+
+function renderWithTheme(ui: React.ReactElement) {
+  return render(<ThemeProvider theme={testTheme}>{ui}</ThemeProvider>);
+}
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   MemoryRouter: ({ children }: any) => <div>{children}</div>,
@@ -38,7 +50,7 @@ describe('PokemonCard', () => {
   afterEach(() => mockNavigate.mockClear());
 
   it('renderiza nome, id, imagem e tipos', () => {
-    render(
+    renderWithTheme(
       <div>
         <PokemonCard pokemon={POKEMON} />
       </div>,
@@ -55,13 +67,13 @@ describe('PokemonCard', () => {
   });
 
   it('mostra peso e altura com unidade correta', () => {
-    render(<PokemonCard pokemon={POKEMON} />);
+    renderWithTheme(<PokemonCard pokemon={POKEMON} />);
     expect(screen.getByText(/6\.9 kg/i)).toBeInTheDocument();
     expect(screen.getByText(/0\.7 m/i)).toBeInTheDocument();
   });
 
   it('navega ao clicar no botão "Mais detalhes"', async () => {
-    render(<PokemonCard pokemon={POKEMON} />);
+    renderWithTheme(<PokemonCard pokemon={POKEMON} />);
     await userEvent.click(screen.getByRole('button', { name: /mais detalhes/i }));
     expect(mockNavigate).toHaveBeenCalledWith(`/pokemon/${POKEMON.id}`, {
       state: { pokemon: POKEMON },
